@@ -4,6 +4,7 @@ import RegisterPage from "./pages/RegisterPage";
 import CustomerDashboard from "./pages/CustomerDashboard";
 import ArtisanDashboard from "./pages/ArtisanDashboard";
 import JobDetailPage from "./pages/JobDetailPage";
+import VerificationPage from "./pages/VerificationPage";
 
 function ProtectedRoute({ children }) {
   const token = localStorage.getItem("token");
@@ -27,6 +28,7 @@ export default function App() {
           <ProtectedRoute><ArtisanDashboard /></ProtectedRoute>
         } />
         <Route path="*" element={<Navigate to="/login" replace />} />
+        <Route path="/artisan/verify" element={<ProtectedRoute><VerificationPage /></ProtectedRoute>} />
       </Routes>
     </BrowserRouter>
   );

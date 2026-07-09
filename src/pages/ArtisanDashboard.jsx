@@ -177,15 +177,21 @@ export default function ArtisanDashboard() {
               </div>
             </div>
 
-            {profile?.verification_status !== "approved" && (
-              <div style={styles.warningCard}>
-                <p style={styles.warningTitle}>⚠️ Account Pending Verification</p>
-                <p style={styles.warningSub}>
-                  Your account is pending admin verification. You will be able
-                  to submit quotes once approved.
-                </p>
-              </div>
-            )}
+                {profile?.verification_status !== "approved" && (
+                <div style={styles.warningCard}>
+                    <p style={styles.warningTitle}>⚠️ Account Pending Verification</p>
+                    <p style={styles.warningSub}>
+                    Your account is pending admin verification. You will be able
+                    to submit quotes once approved.
+                    </p>
+                    <button
+                    style={styles.verifyBtn}
+                    onClick={() => navigate("/artisan/verify")}
+                    >
+                    Get Verified Now →
+                    </button>
+                </div>
+                )}
 
             {/* Active jobs preview */}
             {myJobs.filter(j => !["completed","cancelled"].includes(j.status)).length > 0 && (
@@ -537,6 +543,13 @@ const activeCardStyles = {
     padding: "12px", border: "1px solid #27AE60",
   },
   completedText: { fontSize: "13px", color: "#27AE60", fontWeight: "bold", margin: 0 },
+  verifyBtn: {
+  marginTop: "12px", padding: "10px 20px",
+  backgroundColor: "#028090", color: "#fff",
+  border: "none", borderRadius: "8px",
+  fontSize: "13px", fontWeight: "bold", cursor: "pointer",
+},
+
 };
 
 
