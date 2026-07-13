@@ -47,6 +47,7 @@ export const submitGuarantor = (data) => api.post('/verification/guarantor/', da
 export const getCategories = () => api.get('/categories/');
 export const getArtisanActiveJobs = () => api.get('/artisan/jobs/');
 
+
 // ── JOB REQUESTS ──────────────────────────────────────
 export const getJobs = () => api.get('/jobs/');
 export const getMyJobs = () => api.get('/jobs/mine/');
@@ -73,5 +74,8 @@ export const uploadAfterPhoto = (jobId, data) => api.post(`/active-jobs/${jobId}
   headers: { 'Content-Type': 'multipart/form-data' }
 });
 export const confirmPortfolioPhoto = (jobId) => api.post(`/active-jobs/${jobId}/confirm-photo/`);
+
+// update artisan categories
+export const updateArtisanCategories = (data) => api.post('/profile/artisan/categories/', data);
 
 export default api;
