@@ -320,6 +320,18 @@ export default function ArtisanDashboard() {
           <div>
             <h2 style={styles.pageTitle}>My Profile</h2>
             <div style={styles.profileDetailCard}>
+<button
+  style={{
+    width: "100%", padding: "13px",
+    backgroundColor: "#028090", color: "#FFFFFF",
+    border: "none", borderRadius: 8,
+    fontSize: 15, fontWeight: "bold",
+    cursor: "pointer", marginTop: 20,
+  }}
+  onClick={() => navigate("/artisan/edit-profile")}
+>
+  Edit Profile
+</button>              
               <div style={styles.profileDetailRow}>
                 <span style={styles.detailLabel}>Username</span>
                 <span style={styles.detailValue}>{user.username}</span>
