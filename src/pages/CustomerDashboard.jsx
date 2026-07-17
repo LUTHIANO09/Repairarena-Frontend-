@@ -187,13 +187,57 @@ export default function CustomerDashboard() {
         )}
       </div>
 
+        {/* PROFILE TAB */}
+        {activeTab === "profile" && (
+          <div>
+            <h2 style={styles.pageTitle}>My Profile</h2>
+            <div style={styles.jobCard}>
+              <div style={styles.jobCardTop}>
+                <div style={{
+                  width: 60, height: 60, borderRadius: "50%",
+                  backgroundColor: "#028090", color: "#fff",
+                  display: "flex", alignItems: "center",
+                  justifyContent: "center", fontSize: 24, fontWeight: "bold",
+                }}>
+                  {user.username?.[0]?.toUpperCase()}
+                </div>
+                <div>
+                  <p style={{ fontSize: 16, fontWeight: "bold", color: "#012E33", margin: "0 0 4px" }}>
+                    {user.username}
+                  </p>
+                  <p style={{ fontSize: 13, color: "#5C7A78", margin: 0 }}>
+                    {user.phone_number}
+                  </p>
+                  <p style={{ fontSize: 12, color: "#02C39A", fontWeight: "bold", margin: "4px 0 0" }}>
+                    Customer Account
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <button
+              style={{
+                width: "100%", padding: "13px",
+                backgroundColor: "#028090", color: "#FFFFFF",
+                border: "none", borderRadius: 8,
+                fontSize: 15, fontWeight: "bold",
+                cursor: "pointer", marginTop: 8,
+              }}
+              onClick={() => navigate("/customer/edit-profile")}
+            >
+              Edit Profile
+            </button>
+          </div>
+        )}
+
       {/* BOTTOM NAV */}
       <div style={styles.bottomNav}>
         {[
-          { key: "home", icon: "🏠", label: "Home" },
-          { key: "post-job", icon: "➕", label: "Post Job" },
-          { key: "my-jobs", icon: "📋", label: "My Jobs" },
-        ].map((tab) => (
+            { key: "home", icon: "🏠", label: "Home" },
+            { key: "post-job", icon: "➕", label: "Post Job" },
+            { key: "my-jobs", icon: "📋", label: "My Jobs" },
+            { key: "profile", icon: "👤", label: "Profile" },
+          ].map((tab) => (
           <button
             key={tab.key}
             style={activeTab === tab.key ? styles.bottomTabActive : styles.bottomTab}

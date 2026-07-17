@@ -60,6 +60,13 @@ export default function LoginPage() {
               value={formData.password} onChange={handleChange} required
             />
           </div>
+
+          <div style={{ textAlign: "right", marginBottom: 20, marginTop: -14 }}>
+            <Link to="/forgot-password" style={{ fontSize: 12, color: "#028090", fontWeight: "600", textDecoration: "none" }}>
+              Forgot Password?
+            </Link>
+          </div>
+
           <button
             type="submit"
             style={loading ? { ...styles.button, opacity: 0.7 } : styles.button}

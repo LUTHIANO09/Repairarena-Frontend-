@@ -7,6 +7,9 @@ import JobDetailPage from "./pages/JobDetailPage";
 import VerificationPage from "./pages/VerificationPage";
 import LandingPage from "./pages/LandingPage";
 import EditProfilePage from "./pages/EditProfilePage";
+import EditCustomerProfilePage from "./pages/EditCustomerProfilePage";
+import ForgotPasswordPage from "./pages/ForgotPasswordPage";
+import ResetPasswordPage from "./pages/ResetPasswordPage";
 
 function ProtectedRoute({ children }) {
   const token = localStorage.getItem("token");
@@ -57,6 +60,14 @@ export default function App() {
 
           {/* Catch all */}
           <Route path="*" element={<Navigate to="/" replace />} />
+
+          <Route path="/customer/edit-profile" element={
+            <ProtectedRoute><EditCustomerProfilePage /></ProtectedRoute>
+          } />
+
+          <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+          <Route path="/reset-password/:uid/:token" element={<ResetPasswordPage />} />
+
         </Routes>
       </BrowserRouter>
     </>
